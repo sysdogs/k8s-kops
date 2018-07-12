@@ -1,0 +1,44 @@
+---
+cloudProvider: aws
+awsRegion: eu-west-1
+
+configBase: example-kops-s3
+kubernetesVersion: 1.9.6
+
+cluster: k8s-jail
+dnsZone: exampledev.example.com
+
+apiLoadbalancerType: Public
+kubernetesApiAccess: [
+  0.0.0.0/0
+]
+
+sshAccess: [
+  0.0.0.0/0
+]
+
+networkCIDR: 192.168.0.0/24
+nonMasqueradeCIDR: 100.64.0.0/10
+
+iamLegacy: false
+iamAllowContainerRegistry: true
+
+etcdEncryptedVolume: true
+etcdEnableTLS: true
+etcdVersion: 3.2.17
+
+bastionImage: ami-4c457735
+bastionMachineType: t2.large
+
+masterImage: ami-4c457735
+masterMachineType: t2.large
+
+nodeImage: ami-4c457735
+nodeMachineType: t2.large
+nodeSize: 3
+
+topologyDnsType: Private
+topologyMasters: private
+topologyNodes: private
+
+sshPublicKey: ssh-public-key
