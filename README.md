@@ -3,7 +3,7 @@
 This is a templated version of `k8s`, `kops`-based cluster.
 
 
-### Usage
+## Usage
 
 First of all, you have to have `kops` installed. [[kops-installation]]
 Then, you can fairly use the templated version of the cluster.
