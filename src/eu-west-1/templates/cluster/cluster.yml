@@ -10,6 +10,9 @@ spec:
       type: {{.apiLoadbalancerType}}
   authorization:
     rbac: {}
+  kubelet:
+    enableCustomMetrics: {{.kubeletEnableCustomMetrics}}
+    cloudProvider: {{.cloudProvider}}
   channel: stable
   cloudProvider: {{.cloudProvider}}
   configBase: s3://{{.configBase}}/{{.cluster}}.{{.dnsZone}}
