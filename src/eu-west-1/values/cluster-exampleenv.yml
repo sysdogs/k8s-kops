@@ -28,12 +28,15 @@ etcdEncryptedVolume: true
 etcdEnableTLS: true
 etcdVersion: 3.2.17
 
+bastionDetailedInstanceMonitoring: true
 bastionImage: ami-4c457735
 bastionMachineType: t2.large
 
+masterDetailedInstanceMonitoring: true
 masterImage: ami-4c457735
 masterMachineType: t2.large
 
+nodeDetailedInstanceMonitoring: true
 nodeImage: ami-4c457735
 nodeMachineType: t2.large
 nodeSize: 3
