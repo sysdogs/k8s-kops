@@ -11,7 +11,7 @@ spec:
   cloudLabels:
       Environment: {{.cluster}}
       StackName: k8s
-  associatePublicIp: true
+  associatePublicIp: {{.bastionAssociatePublicIp}}
   image: {{.bastionImage}}
   machineType: {{.bastionMachineType}}
   maxSize: 1

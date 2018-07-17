@@ -28,6 +28,7 @@ etcdEncryptedVolume: true
 etcdEnableTLS: true
 etcdVersion: 3.2.17
 
+bastionAssociatePublicIp: true
 bastionDetailedInstanceMonitoring: true
 bastionImage: ami-4c457735
 bastionMachineType: t2.large
