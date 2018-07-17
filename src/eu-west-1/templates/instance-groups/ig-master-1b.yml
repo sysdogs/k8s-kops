@@ -13,6 +13,8 @@ spec:
       StackName: k8s
   image: {{.masterImage}}
   machineType: {{.masterMachineType}}
+  rootVolumeSize: {{.masterRootVolumeSize}}
+  rootVolumeType: {{.masterRootVolumeType}}
   maxSize: 1
   minSize: 1
   nodeLabels:

@@ -14,6 +14,8 @@ spec:
   associatePublicIp: {{.bastionAssociatePublicIp}}
   image: {{.bastionImage}}
   machineType: {{.bastionMachineType}}
+  rootVolumeSize: {{.bastionRootVolumeSize}}
+  rootVolumeType: {{.bastionRootVolumeType}}
   maxSize: 1
   minSize: 1
   role: Bastion

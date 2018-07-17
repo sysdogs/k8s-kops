@@ -12,6 +12,8 @@ spec:
       Environment: {{.cluster}}
   image: {{.nodeImage}}
   machineType: {{.nodeMachineType}}
+  rootVolumeSize: {{.nodeRootVolumeSize}}
+  rootVolumeType: {{.nodeRootVolumeType}}
   maxSize: {{.nodeSize}}
   minSize: {{.nodeSize}}
   nodeLabels:
