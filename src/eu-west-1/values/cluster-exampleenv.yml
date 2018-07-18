@@ -54,7 +54,7 @@ masterRootVolumeType: gp2
 nodeDetailedInstanceMonitoring: true
 nodeImage: ami-4c457735
 nodeMachineType: t2.large
-nodeSize: 3
+nodeSizePerAz: 1
 nodeRootVolumeSize: 128
 nodeRootVolumeType: gp2
 

@@ -1,0 +1,23 @@
+---
+apiVersion: kops/v1alpha2
+kind: InstanceGroup
+metadata:
+  creationTimestamp: null
+  labels:
+    kops.k8s.io/cluster: {{.cluster}}.{{.dnsZone}}
+  name: node-{{.awsRegion}}b
+spec:
+  detailedInstanceMonitoring: {{.nodeDetailedInstanceMonitoring}}
+  cloudLabels:
+      Environment: {{.cluster}}
+  image: {{.nodeImage}}
+  machineType: {{.nodeMachineType}}
+  rootVolumeSize: {{.nodeRootVolumeSize}}
+  rootVolumeType: {{.nodeRootVolumeType}}
+  maxSize: {{.nodeSizePerAz}}
+  minSize: {{.nodeSizePerAz}}
+  nodeLabels:
+    kops.k8s.io/instancegroup: nodes-{{.awsRegion}}b
+  role: Node
+  subnets:
+  - {{.awsRegion}}b-node

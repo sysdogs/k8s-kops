@@ -5,7 +5,7 @@ metadata:
   creationTimestamp: null
   labels:
     kops.k8s.io/cluster: {{.cluster}}.{{.dnsZone}}
-  name: node
+  name: node-{{.awsRegion}}c
 spec:
   detailedInstanceMonitoring: {{.nodeDetailedInstanceMonitoring}}
   cloudLabels:
@@ -14,12 +14,10 @@ spec:
   machineType: {{.nodeMachineType}}
   rootVolumeSize: {{.nodeRootVolumeSize}}
   rootVolumeType: {{.nodeRootVolumeType}}
-  maxSize: {{.nodeSize}}
-  minSize: {{.nodeSize}}
+  maxSize: {{.nodeSizePerAz}}
+  minSize: {{.nodeSizePerAz}}
   nodeLabels:
-    kops.k8s.io/instancegroup: nodes
+    kops.k8s.io/instancegroup: nodes-{{.awsRegion}}c
   role: Node
   subnets:
-  - {{.awsRegion}}a-node
-  - {{.awsRegion}}b-node
   - {{.awsRegion}}c-node
