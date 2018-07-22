@@ -20,6 +20,7 @@ repos:
 
     - id: mixed-line-ending
       name: (code) -- mixed-line-ending
+      args: [--fix=no]
 
     - id: end-of-file-fixer
       name: (code) -- end-of-line-fixer
