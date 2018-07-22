@@ -4,8 +4,12 @@ repos:
   rev: v1.3.0
   hooks:
     - id: check-executables-have-shebangs
+      name: (files) -- check-executables-have-shebangs
     - id: mixed-line-ending
+      name: (code) -- mixed-line-ending
     - id: end-of-file-fixer
+      name: (code) -- end-of-line-fixer
     - id: detect-aws-credentials
+      name: (security) -- detect-private-key
     - id: detect-private-key
-    - id: trailing-whitespace
+      name: (security) -- detect-private-key
