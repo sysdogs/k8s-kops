@@ -61,39 +61,39 @@ spec:
     - {{.}}
   {{end}}
   subnets:
-  - cidr: 192.168.0.0/28
+  - cidr: 10.50.110.0/24
     name: {{.awsRegion}}a-node
     zone: {{.awsRegion}}a
     type: Private
-  - cidr: 192.168.0.16/28
+  - cidr: 10.50.111.0/24
     name: {{.awsRegion}}b-node
     zone: {{.awsRegion}}b
     type: Private
-  - cidr: 192.168.0.32/28
+  - cidr: 10.50.112.0/24
     name: {{.awsRegion}}c-node
     zone: {{.awsRegion}}c
     type: Private
-  - cidr: 192.168.0.128/28
+  - cidr: 10.50.120.0/24
     name: {{.awsRegion}}a-utility
     zone: {{.awsRegion}}a
     type: Utility
-  - cidr: 192.168.0.144/28
+  - cidr: 10.50.121.0/24
     name: {{.awsRegion}}b-utility
     zone: {{.awsRegion}}b
     type: Utility
-  - cidr: 192.168.0.160/28
+  - cidr: 10.50.122.0/24
     name: {{.awsRegion}}c-utility
     zone: {{.awsRegion}}c
     type: Utility
-  - cidr: 192.168.0.208/28
+  - cidr: 10.50.130.0/24
     name: {{.awsRegion}}a-master
     zone: {{.awsRegion}}a
     type: Private
-  - cidr: 192.168.0.224/28
+  - cidr: 10.50.131.0/24
     name: {{.awsRegion}}b-master
     zone: {{.awsRegion}}b
     type: Private
-  - cidr: 192.168.0.240/28
+  - cidr: 10.50.132.0/24
     name: {{.awsRegion}}c-master
     zone: {{.awsRegion}}c
     type: Private

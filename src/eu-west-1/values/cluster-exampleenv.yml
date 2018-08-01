@@ -23,7 +23,8 @@ sshAccess: [
 ]
 
 
-networkCIDR: 192.168.0.0/24
+nonMasqueradeCIDR: 100.64.0.0/10
+networkCIDR: 10.50.0.0/16
 nonMasqueradeCIDR: 100.64.0.0/10
 
 
@@ -54,14 +55,11 @@ masterRootVolumeType: gp2
 nodeDetailedInstanceMonitoring: true
 nodeImage: ami-4c457735
 nodeMachineType: t2.large
-nodeSizePerAz: 1
 nodeRootVolumeSize: 128
 nodeRootVolumeType: gp2
+nodeSizePerAz: 2
 
 
 topologyDnsType: Private
 topologyMasters: private
 topologyNodes: private
-
-
-sshPublicKey: ssh-public-key
