@@ -1,13 +1,15 @@
 admissionControl:
-  - Initializers
-  - NamespaceLifecycle
-  - LimitRanger
-  - ServiceAccount
-  - PersistentVolumeLabel
+  - AlwaysPullImages
   - DefaultStorageClass
   - DefaultTolerationSeconds
-  - NodeRestriction
-  - ResourceQuota
-  - AlwaysPullImages
   - DenyEscalatingExec
+  - EventRateLimit
+  - Initializers
+  - LimitRanger
+  - NamespaceLifecycle
+  - NodeRestriction
+  - PersistentVolumeLabel
+  - PodSecurityPolicy
+  - ResourceQuota
   - SecurityContextDeny
+  - ServiceAccount
