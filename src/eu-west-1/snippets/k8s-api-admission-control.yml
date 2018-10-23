@@ -1,0 +1,13 @@
+admissionControl:
+  - Initializers
+  - NamespaceLifecycle
+  - LimitRanger
+  - ServiceAccount
+  - PersistentVolumeLabel
+  - DefaultStorageClass
+  - DefaultTolerationSeconds
+  - NodeRestriction
+  - ResourceQuota
+  - AlwaysPullImages
+  - DenyEscalatingExec
+  - SecurityContextDeny
