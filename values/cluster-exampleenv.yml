@@ -13,14 +13,12 @@ dnsZone: exampledev.example.com
 
 apiLoadbalancerType: Public
 kubeletEnableCustomMetrics: true
-kubernetesApiAccess: [
-  0.0.0.0/0
-]
+kubernetesApiAccess:
+  - 0.0.0.0/0
 
 
-sshAccess: [
-  0.0.0.0/0
-]
+sshAccess:
+  - 0.0.0.0/0
 
 
 nonMasqueradeCIDR: 100.64.0.0/10
