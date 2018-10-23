@@ -5,6 +5,8 @@ metadata:
   creationTimestamp: null
   name: {{.cluster}}.{{.dnsZone}}
 spec:
+  kubeAPIServer:
+    {{ include "k8s-api-admission-control.yml" . | indent 4 }}
   api:
     loadBalancer:
       type: {{.apiLoadbalancerType}}
