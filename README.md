@@ -20,8 +20,8 @@ kops toolbox template --fail-on-missing \
                       --format-yaml \
                       --template src/eu-west-1/templates \
                       --snippets src/eu-west-1/snippets \
-                      --values src/eu-west-1/values/cluster-exampleenv.yml \
-                      > clusters/cluster-exampleenv.yml
+                      --values values/cluster-exampleenv.yml \
+                      > dist/clusters/cluster-exampleenv.yml
 ```
 
 * Generate a cluster from template:
