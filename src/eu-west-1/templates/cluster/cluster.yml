@@ -7,6 +7,17 @@ metadata:
 spec:
   kubeAPIServer:
     {{ include "k8s-api-admission-control.yml" . | indent 4 }}
+    auditLogPath: {{.auditLogPath}}
+    auditLogMaxAge: {{.auditLogMaxAge}}
+    auditLogMaxBackups: {{.auditLogMaxBackups}}
+    auditLogMaxSize: {{.auditLogMaxSize}}
+    auditPolicyFile: {{.auditPolicyFile}}
+  fileAssets:
+    - name: k8s-api-audit-policy
+      path: {{.auditPolicyFile}}
+      roles: [Master]
+      content: |
+        {{ include "k8s-api-audit-policy.yml" . | indent 8 }}
   api:
     loadBalancer:
       type: {{.apiLoadbalancerType}}

@@ -37,6 +37,13 @@ etcdEnableTLS: true
 etcdVersion: 3.2.17
 
 
+auditPolicyFile: /srv/kubernetes/audit.yaml
+auditLogPath: /var/log/kube-apiserver-audit.log
+auditLogMaxAge: 30
+auditLogMaxBackups: 16
+auditLogMaxSize: 100
+
+
 bastionAssociatePublicIp: true
 bastionDetailedInstanceMonitoring: true
 bastionImage: ami-4c457735
