@@ -42,24 +42,27 @@ auditLogMaxBackups: 16
 auditLogMaxSize: 100
 
 
+bastionRootVolumeOptimization: true
 bastionAssociatePublicIp: true
 bastionDetailedInstanceMonitoring: true
 bastionImage: ami-4c457735
-bastionMachineType: t2.large
+bastionMachineType: m4.large
 bastionRootVolumeSize: 32
 bastionRootVolumeType: gp2
 
 
+masterRootVolumeOptimization: true
 masterDetailedInstanceMonitoring: true
 masterImage: ami-4c457735
-masterMachineType: t2.large
+masterMachineType: m4.large
 masterRootVolumeSize: 64
 masterRootVolumeType: gp2
 
 
+nodeRootVolumeOptimization: true
 nodeDetailedInstanceMonitoring: true
 nodeImage: ami-4c457735
-nodeMachineType: t2.large
+nodeMachineType: m4.large
 nodeRootVolumeSize: 128
 nodeRootVolumeType: gp2
 nodeSizePerAz: 2

@@ -7,6 +7,7 @@ metadata:
     kops.k8s.io/cluster: {{.cluster}}.{{.dnsZone}}
   name: node-{{.awsRegion}}b
 spec:
+  rootVolumeOptimization: {{.nodeRootVolumeOptimization}}
   detailedInstanceMonitoring: {{.nodeDetailedInstanceMonitoring}}
   cloudLabels:
       Environment: {{.cluster}}
