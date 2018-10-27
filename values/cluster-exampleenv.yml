@@ -4,7 +4,7 @@ awsRegion: eu-west-1
 
 
 configBase: example-kops-s3
-kubernetesVersion: 1.9.6
+kubernetesVersion: 1.10.9
 
 
 cluster: k8s-jail
