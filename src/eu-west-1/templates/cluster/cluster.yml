@@ -1,0 +1,119 @@
+---
+apiVersion: kops/v1alpha2
+kind: Cluster
+metadata:
+  creationTimestamp: null
+  name: {{.cluster}}.{{.dnsZone}}
+spec:
+  kubeAPIServer:
+    {{ include "k8s-api-admission-control.yml" . | indent 4 }}
+    auditLogPath: {{.auditLogPath}}
+    auditLogMaxAge: {{.auditLogMaxAge}}
+    auditLogMaxBackups: {{.auditLogMaxBackups}}
+    auditLogMaxSize: {{.auditLogMaxSize}}
+    auditPolicyFile: {{.auditPolicyFile}}
+  fileAssets:
+    - name: k8s-api-audit-policy
+      path: {{.auditPolicyFile}}
+      roles: [Master]
+      content: |
+        {{ include "k8s-api-audit-policy.yml" . | indent 8 }}
+  api:
+    loadBalancer:
+      type: {{.apiLoadbalancerType}}
+  authorization:
+    rbac: {}
+  kubelet:
+    enableCustomMetrics: {{.kubeletEnableCustomMetrics}}
+    cloudProvider: {{.cloudProvider}}
+  channel: stable
+  cloudProvider: {{.cloudProvider}}
+  configBase: s3://{{.configBase}}/{{.cluster}}.{{.dnsZone}}
+  etcdClusters:
+  - etcdMembers:
+    - instanceGroup: master-{{.awsRegion}}a
+      name: a
+      encryptedVolume: {{.etcdEncryptedVolume}}
+    - instanceGroup: master-{{.awsRegion}}b
+      name: b
+      encryptedVolume: {{.etcdEncryptedVolume}}
+    - instanceGroup: master-{{.awsRegion}}c
+      name: c
+      encryptedVolume: {{.etcdEncryptedVolume}}
+    enableEtcdTLS: {{.etcdEnableTLS}}
+    version: {{.etcdVersion}}
+    name: main
+  - etcdMembers:
+    - instanceGroup: master-{{.awsRegion}}a
+      name: a
+      encryptedVolume: {{.etcdEncryptedVolume}}
+    - instanceGroup: master-{{.awsRegion}}b
+      name: b
+      encryptedVolume: {{.etcdEncryptedVolume}}
+    - instanceGroup: master-{{.awsRegion}}c
+      name: c
+      encryptedVolume: {{.etcdEncryptedVolume}}
+    enableEtcdTLS: {{.etcdEnableTLS}}
+    version: {{.etcdVersion}}
+    name: events
+  iam:
+    allowContainerRegistry: {{.iamAllowContainerRegistry}}
+    legacy: {{.iamLegacy}}
+  kubernetesApiAccess:
+  {{range .kubernetesApiAccess}}
+    - {{.}}
+  {{end}}
+  kubernetesVersion: {{.kubernetesVersion}}
+  masterPublicName: api.{{.cluster}}.{{.dnsZone}}
+  networkCIDR: {{.networkCIDR}}
+  networking:
+    calico: {}
+  nonMasqueradeCIDR: {{.nonMasqueradeCIDR}}
+  sshAccess:
+  {{range .sshAccess}}
+    - {{.}}
+  {{end}}
+  subnets:
+  - cidr: 10.50.110.0/24
+    name: {{.awsRegion}}a-node
+    zone: {{.awsRegion}}a
+    type: Private
+  - cidr: 10.50.111.0/24
+    name: {{.awsRegion}}b-node
+    zone: {{.awsRegion}}b
+    type: Private
+  - cidr: 10.50.112.0/24
+    name: {{.awsRegion}}c-node
+    zone: {{.awsRegion}}c
+    type: Private
+  - cidr: 10.50.120.0/24
+    name: {{.awsRegion}}a-utility
+    zone: {{.awsRegion}}a
+    type: Utility
+  - cidr: 10.50.121.0/24
+    name: {{.awsRegion}}b-utility
+    zone: {{.awsRegion}}b
+    type: Utility
+  - cidr: 10.50.122.0/24
+    name: {{.awsRegion}}c-utility
+    zone: {{.awsRegion}}c
+    type: Utility
+  - cidr: 10.50.130.0/24
+    name: {{.awsRegion}}a-master
+    zone: {{.awsRegion}}a
+    type: Private
+  - cidr: 10.50.131.0/24
+    name: {{.awsRegion}}b-master
+    zone: {{.awsRegion}}b
+    type: Private
+  - cidr: 10.50.132.0/24
+    name: {{.awsRegion}}c-master
+    zone: {{.awsRegion}}c
+    type: Private
+  topology:
+    masters: {{.topologyMasters}}
+    nodes: {{.topologyNodes}}
+    bastion:
+      bastionPublicName: bastion.{{.cluster}}.{{.dnsZone}}
+    dns:
+      type: {{.topologyDnsType}}

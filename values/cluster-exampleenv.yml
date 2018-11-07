@@ -1,0 +1,73 @@
+---
+cloudProvider: aws
+awsRegion: eu-west-1
+
+
+configBase: example-kops-s3
+kubernetesVersion: 1.10.9
+
+
+cluster: k8s-jail
+dnsZone: exampledev.example.com
+
+
+apiLoadbalancerType: Public
+kubeletEnableCustomMetrics: true
+kubernetesApiAccess:
+  - 0.0.0.0/0
+
+
+sshAccess:
+  - 0.0.0.0/0
+
+
+nonMasqueradeCIDR: 100.64.0.0/10
+networkCIDR: 10.50.0.0/16
+nonMasqueradeCIDR: 100.64.0.0/10
+
+
+iamLegacy: false
+iamAllowContainerRegistry: true
+
+
+etcdEncryptedVolume: true
+etcdEnableTLS: true
+etcdVersion: 3.2.17
+
+
+auditPolicyFile: /srv/kubernetes/audit.yaml
+auditLogPath: /var/log/kube-apiserver-audit.log
+auditLogMaxAge: 30
+auditLogMaxBackups: 16
+auditLogMaxSize: 100
+
+
+bastionRootVolumeOptimization: true
+bastionAssociatePublicIp: true
+bastionDetailedInstanceMonitoring: true
+bastionImage: ami-4c457735
+bastionMachineType: m4.large
+bastionRootVolumeSize: 32
+bastionRootVolumeType: gp2
+
+
+masterRootVolumeOptimization: true
+masterDetailedInstanceMonitoring: true
+masterImage: ami-4c457735
+masterMachineType: m4.large
+masterRootVolumeSize: 64
+masterRootVolumeType: gp2
+
+
+nodeRootVolumeOptimization: true
+nodeDetailedInstanceMonitoring: true
+nodeImage: ami-4c457735
+nodeMachineType: m4.large
+nodeRootVolumeSize: 128
+nodeRootVolumeType: gp2
+nodeSizePerAz: 2
+
+
+topologyDnsType: Private
+topologyMasters: private
+topologyNodes: private

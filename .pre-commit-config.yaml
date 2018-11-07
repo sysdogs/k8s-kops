@@ -1,0 +1,29 @@
+---
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v1.3.0
+  hooks:
+    - id: detect-aws-credentials
+      name: (security) -- detect-private-key
+
+    - id: detect-private-key
+      name: (security) -- detect-private-key
+
+    - id: check-case-conflict
+      name: (files) -- check-case-conflict
+
+    - id: check-added-large-files
+      name: (files) -- check-added-large-files
+
+    - id: check-executables-have-shebangs
+      name: (code) -- check-executables-have-shebangs
+
+    - id: mixed-line-ending
+      name: (code) -- mixed-line-ending
+      args: [--fix=no]
+
+    - id: end-of-file-fixer
+      name: (code) -- end-of-line-fixer
+
+    - id: check-merge-conflict
+      name: (git) -- check-merge-conflict

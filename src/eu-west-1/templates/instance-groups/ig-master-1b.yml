@@ -1,0 +1,25 @@
+---
+apiVersion: kops/v1alpha2
+kind: InstanceGroup
+metadata:
+  creationTimestamp: null
+  labels:
+    kops.k8s.io/cluster: {{.cluster}}.{{.dnsZone}}
+  name: master-{{.awsRegion}}b
+spec:
+  rootVolumeOptimization: {{.masterRootVolumeOptimization}}
+  detailedInstanceMonitoring: {{.masterDetailedInstanceMonitoring}}
+  cloudLabels:
+      Environment: {{.cluster}}
+      StackName: k8s
+  image: {{.masterImage}}
+  machineType: {{.masterMachineType}}
+  rootVolumeSize: {{.masterRootVolumeSize}}
+  rootVolumeType: {{.masterRootVolumeType}}
+  maxSize: 1
+  minSize: 1
+  nodeLabels:
+    kops.k8s.io/instancegroup: master-{{.awsRegion}}b
+  role: Master
+  subnets:
+  - {{.awsRegion}}b-master
