@@ -24,8 +24,10 @@ spec:
   authorization:
     rbac: {}
   kubelet:
-    enableCustomMetrics: {{.kubeletEnableCustomMetrics}}
+    anonymousAuth: {{.kubeletAnonymousAuth}}
     cloudProvider: {{.cloudProvider}}
+  kubeDNS:
+    provider: {{.kubeDnsProvider}}
   channel: stable
   cloudProvider: {{.cloudProvider}}
   configBase: s3://{{.configBase}}/{{.cluster}}.{{.dnsZone}}

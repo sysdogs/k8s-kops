@@ -4,7 +4,7 @@ awsRegion: eu-west-1
 
 
 configBase: example-kops-s3
-kubernetesVersion: 1.10.9
+kubernetesVersion: 1.11.6
 
 
 cluster: k8s-jail
@@ -12,7 +12,7 @@ dnsZone: exampledev.example.com
 
 
 apiLoadbalancerType: Public
-kubeletEnableCustomMetrics: true
+kubeletAnonymousAuth: false
 kubernetesApiAccess:
   - 0.0.0.0/0
 
@@ -23,12 +23,12 @@ sshAccess:
 
 nonMasqueradeCIDR: 100.64.0.0/10
 networkCIDR: 10.50.0.0/16
-nonMasqueradeCIDR: 100.64.0.0/10
 
 
 iamLegacy: false
 iamAllowContainerRegistry: true
 
+kubeDnsProvider: CoreDNS
 
 etcdEncryptedVolume: true
 etcdEnableTLS: true
@@ -45,24 +45,24 @@ auditLogMaxSize: 100
 bastionRootVolumeOptimization: true
 bastionAssociatePublicIp: true
 bastionDetailedInstanceMonitoring: true
-bastionImage: ami-4c457735
-bastionMachineType: m4.large
+bastionImage: ami-86c695ff
+bastionMachineType: t3.nano
 bastionRootVolumeSize: 32
 bastionRootVolumeType: gp2
 
 
 masterRootVolumeOptimization: true
 masterDetailedInstanceMonitoring: true
-masterImage: ami-4c457735
-masterMachineType: m4.large
+masterImage: ami-86c695ff
+masterMachineType: t3.large
 masterRootVolumeSize: 64
 masterRootVolumeType: gp2
 
 
 nodeRootVolumeOptimization: true
 nodeDetailedInstanceMonitoring: true
-nodeImage: ami-4c457735
-nodeMachineType: m4.large
+nodeImage: ami-86c695ff
+nodeMachineType: t3.large
 nodeRootVolumeSize: 128
 nodeRootVolumeType: gp2
 nodeSizePerAz: 2
