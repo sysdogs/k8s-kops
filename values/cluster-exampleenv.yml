@@ -1,7 +1,12 @@
 ---
 cloudProvider: aws
 awsRegion: eu-west-1
+
+
 failSwapOn: true
+sysctlPersonalPath: /etc/sysctl.d/99-k8s-personal.conf
+sysctlPersonalValues: |
+  vm.swappiness = 1
 
 
 configBase: example-kops-s3

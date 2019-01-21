@@ -14,6 +14,11 @@ spec:
     auditLogMaxSize: {{.auditLogMaxSize}}
     auditPolicyFile: {{.auditPolicyFile}}
   fileAssets:
+    - name: etc-sysctl-99-k8s-personal
+      path: {{.sysctlPersonalPath}}
+      roles: [Master,Node,Bastion]
+      content: |
+        {{.sysctlPersonalValues}}
     - name: k8s-api-audit-policy
       path: {{.auditPolicyFile}}
       roles: [Master]
