@@ -1,6 +1,7 @@
 ---
 cloudProvider: aws
 awsRegion: eu-west-1
+failSwapOn: true
 
 
 configBase: example-kops-s3

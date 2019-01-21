@@ -5,6 +5,7 @@ metadata:
   creationTimestamp: null
   name: {{.cluster}}.{{.dnsZone}}
 spec:
+  failSwapOn: {{.failSwapOn}}
   kubeAPIServer:
     {{ include "k8s-api-admission-control.yml" . | indent 4 }}
     auditLogPath: {{.auditLogPath}}
