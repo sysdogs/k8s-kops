@@ -10,7 +10,7 @@ sysctlPersonalValues: |
 
 
 configBase: example-kops-s3
-kubernetesVersion: 1.11.6
+kubernetesVersion: 1.11.7
 
 
 cluster: k8s-jail
@@ -29,6 +29,15 @@ sshAccess:
 
 nonMasqueradeCIDR: 100.64.0.0/10
 networkCIDR: 10.50.0.0/16
+networkSubnetNodeA: 10.50.110.0/24
+networkSubnetNodeB: 10.50.111.0/24
+networkSubnetNodeC: 10.50.112.0/24
+networkSubnetMasterA: 10.50.130.0/24
+networkSubnetMasterB: 10.50.131.0/24
+networkSubnetMasterC: 10.50.132.0/24
+networkSubnetUtilityA: 10.50.120.0/24
+networkSubnetUtilityB: 10.50.121.0/24
+networkSubnetUtilityC: 10.50.122.0/24
 
 
 iamLegacy: false
