@@ -1,0 +1,9 @@
+releases:
+
+  - name: metrics-server
+    chart: stable/metrics-server
+    version: 2.1.1
+    labels: 
+      phase: 01
+      release: metrics-server
+
