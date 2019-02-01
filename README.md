@@ -17,7 +17,7 @@ export KOPS_STATE_STORE="s3://exampleenv-kops-s3
 You *always* have to set this environment variable.
 
 
-Atomated steps:
+#### Automated installation
 
   - It is possible to use `Makefile` target, for example:
 
@@ -30,7 +30,7 @@ Atomated steps:
 
 
 
-Manual steps:
+##### Manual installation
 
 * Create a template from values:
 ```
