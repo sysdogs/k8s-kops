@@ -2,7 +2,7 @@
 test:
 	pre-commit run --all-files
 
-dist/clusters/%.yml: values/%.yml test
+dist/clusters/%.yml: values/%.yml
 	kops toolbox template --fail-on-missing \
                       --format-yaml \
                       --template src/eu-west-1/templates \
