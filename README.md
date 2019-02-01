@@ -30,4 +30,28 @@ kops create -f clusters/cluster-exampleenv.yml
 ```
 
 
+
+It is possible to use `Makefile` target:
+
+```
+make dist/clusters/cluster-exampleenv.yml
+```
+
+Be informed, please, that this target assumes equallity of `<cluster-name>`
+between `dist/clusters/<cluster-name>.yml` and `values/<cluster-name>.yml`
+
+
+## Contibution
+
+Make sure all tests passes from:
+
+```
+make test
+```
+
+Its requirement is `pre-commit`.
+
+
+
+
 [kops-installation]: https://github.com/kubernetes/kops#installing
