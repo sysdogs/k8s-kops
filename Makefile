@@ -1,4 +1,3 @@
-
 .PHONY: test
 test:
 	pre-commit run --all-files
@@ -10,3 +9,5 @@ dist/clusters/%.yml: values/%.yml test
                       --snippets src/eu-west-1/snippets \
                       --values $< \
                       > $@
+	kops replace --force -f $@
+	kops update cluster
