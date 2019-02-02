@@ -14,11 +14,18 @@ dist/clusters/%.yml: values/%.yml
                       --snippets src/eu-west-1/snippets \
                       --values $< \
                       > $@
+	kops replace --force -f $@
+	kops update cluster
 
 #
 # Targets
 #
-build: $(CLUSTER_FILES)
+.PHONY: update test clean
+
+update: $(CLUSTER_FILES)
+
+test:
+	pre-commit run --all-files
 
 clean:
 	rm -rf $(CLUSTER_FILES)

@@ -19,15 +19,18 @@ You *always* have to set this environment variable.
 
 #### Automated installation
 
-  - It is possible to use `Makefile` target, for example:
+Run make and it will update all the clusters configured in the *values* directory
 
-  ```
-  make dist/clusters/cluster-exampleenv.yml
-  ```
-  Notice that this target assumes equality of `<cluster-name>`
-  between `dist/clusters/<cluster-name>.yml` and `values/<cluster-name>.yml`
+```
+make
+```
 
+For example the following values file will generate a cluster spec that will be used
+by kops to update the target cluster
 
+* values/cluster-exampleenv.yml
+
+The generated kops cluster specs will be found under the **dist/clusters** directory
 
 
 ##### Manual installation
@@ -44,7 +47,7 @@ kops toolbox template --fail-on-missing \
 
 * Generate a cluster from template:
 ```
-kops create -f clusters/cluster-exampleenv.yml
+kops create -f dist/clusters/cluster-exampleenv.yml
 ```
 
 
