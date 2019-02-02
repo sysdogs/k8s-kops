@@ -14,8 +14,8 @@ dist/clusters/%.yml: values/%.yml
                       --snippets src/eu-west-1/snippets \
                       --values $< \
                       > $@
-	kops replace --force -f $@
-	kops update cluster
+	kops replace --force -f $@ --name $(patsubst dist/clusters/%.yml,%,$@)
+	kops update cluster --name $(patsubst dist/clusters/%.yml,%,$@)
 
 #
 # Targets
