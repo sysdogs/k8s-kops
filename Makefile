@@ -18,7 +18,7 @@ dist/clusters/%.yml: values/%.yml
 #
 # Targets
 #
-default: $(CLUSTER_FILES)
+build: $(CLUSTER_FILES)
 
 clean:
 	rm -rf $(CLUSTER_FILES)
