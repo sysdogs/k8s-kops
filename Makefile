@@ -1,7 +1,12 @@
-.PHONY: test
-test:
-	pre-commit run --all-files
+# 
+# Variables
+#
+VALUE_FILES   = $(wildcard values/*.yml)
+CLUSTER_FILES = $(patsubst values/%,dist/clusters/%,$(VALUE_FILES))
 
+#
+# Rules
+#
 dist/clusters/%.yml: values/%.yml
 	kops toolbox template --fail-on-missing \
                       --format-yaml \
@@ -9,5 +14,11 @@ dist/clusters/%.yml: values/%.yml
                       --snippets src/eu-west-1/snippets \
                       --values $< \
                       > $@
-	kops replace --force -f $@
-	kops update cluster
+
+#
+# Targets
+#
+default: $(CLUSTER_FILES)
+
+clean:
+	rm -rf $(CLUSTER_FILES)
