@@ -4,18 +4,18 @@ This is a templated version of `k8s`, `kops`-based cluster.
 
 ## Purpose
 
-The main purpose of this repository:
+The main purposes of this repository:
   - Provide a repository to manage multiple Kubernetes clusters with `kops`.
   - Keep Kubernetes clusters _Configuration as Code_.
   - Have an easy way to change Kubernetes cluster's parameters.
   - Have a templated version of Kubernetes cluster deployed on Amazon Web Services.
   - Provide a Kubernetes cluster with basic security policies applied.
-  - Have an automated workflow with `kops`.
+  - Automate workflow with `kops`.
 
 
 ## Usage
 
-First of all, `kops` must installed. [[kops-installation]]
+First of all, `kops` must be installed. [[kops-installation]]
 Then, you can use the templated version of the cluster.
 Have fun.
 
